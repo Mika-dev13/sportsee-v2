@@ -1,0 +1,25 @@
+.aside-container {
+  position: relative;
+  background-color: #020203;
+  color: white;
+  padding: 0 25px;
+  height: 100vh;
+}
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20vh;
+}
+
+.aside-link {
+  margin-bottom: 2em;
+}
+
+.aside-container p {
+  position: absolute;
+  width: 180px;
+  bottom: 120px;
+  left: -35px;
+  transform: rotate(-90deg);
+  font-size: 1.2rem;
+}
