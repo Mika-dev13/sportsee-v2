@@ -1,4 +1,4 @@
- const USER_MAIN_DATA = [
+const USER_MAIN_DATA = [
   {
     id: 12,
     userInfos: {
@@ -6,7 +6,7 @@
       lastName: 'Dovineau',
       age: 31,
     },
-    todayScore: 0.12,
+    score: 0.12,
     keyData: {
       calorieCount: 1930,
       proteinCount: 155,

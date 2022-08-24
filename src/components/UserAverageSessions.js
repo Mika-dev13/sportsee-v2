@@ -1,17 +1,7 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
+import { LineChart, Line, XAxis, Tooltip } from 'recharts';
 import '../styles/UserAverageSessions.css';
 
 export default function UserAverageSessions({ averageSessions }) {
-  console.log(averageSessions);
   return (
     <div className="user-average-lineChart">
       <h2>Durée moyenne des sessions</h2>

@@ -1,3 +1,20 @@
+.dashboard-header {
+  margin-top: 6.8rem;
+  margin-left: 5rem;
+}
+
 .dashboard-container {
+  display: flex;
   margin: 7rem 10rem;
+}
+
+.user-graph {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardinfos-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

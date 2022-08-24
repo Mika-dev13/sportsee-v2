@@ -1,0 +1,15 @@
+.daily-activity-container {
+  position: relative;
+  background-color: #fbfbfb;
+  width: 83.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.daily-activity-container h2 {
+  position: absolute;
+  top: 2.4rem;
+  left: 3.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}

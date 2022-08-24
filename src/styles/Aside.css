@@ -2,8 +2,8 @@
   position: relative;
   background-color: #020203;
   color: white;
-  padding: 0 25px;
-  height: 100vh;
+  padding: 0 2.5rem;
+  height: 122vh;
 }
 .aside-nav {
   display: flex;
@@ -17,8 +17,8 @@
 
 .aside-container p {
   position: absolute;
-  width: 180px;
-  bottom: 120px;
+  width: 18rem;
+  bottom: 15rem;
   left: -35px;
   transform: rotate(-90deg);
   font-size: 1.2rem;

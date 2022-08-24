@@ -1,0 +1,23 @@
+.cardInfos-container {
+  display: flex;
+  align-items: center;
+  width: 19.4rem;
+  background-color: #fbfbfb;
+  padding: 3.2rem;
+  border-radius: 0.5rem;
+  margin-left: 3rem;
+}
+
+.cardInfos-container span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.cardInfos-container p {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.cardInfos-text {
+  padding-left: 2.4rem;
+}
