@@ -1,14 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { USER_MAIN_DATA, USER_ACTIVITY } from '../../datas/Datas.js';
-import '../Home/Home.css';
-// import {
-//   USER_MAIN_DATA,
-//   USER_ACTIVITY,
-//   USER_AVERAGE_SESSIONS,
-//   USER_PERFORMANCE,
-// } from '../../datas/Datas';
+import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from '../../datas/Datas.js';
 import Aside from '../../components/Aside';
 import Dashboard from '../../components/Dashboard';
+import '../Home/Home.css';
 
 export default function Home() {
   const { userId } = useParams();
@@ -21,13 +20,29 @@ export default function Home() {
     (item) => item.userId === parseInt(userId)
   );
 
+  const userAverageSessionsId = USER_AVERAGE_SESSIONS.find(
+    (item) => item.userId === parseInt(userId)
+  );
+
+  const userPerformanceId = USER_PERFORMANCE.find(
+    (item) => item.userId === parseInt(userId)
+  );
+  const { kind, data } = userPerformanceId;
+
   const { todayScore, userInfos } = userMainDataId;
   const { sessions } = userActivityId;
 
   return (
     <div className="home-container">
       <Aside />
-      <Dashboard userInfos={userInfos} score={todayScore} sessions={sessions} />
+      <Dashboard
+        userInfos={userInfos}
+        score={todayScore}
+        sessions={sessions}
+        averageSessions={userAverageSessionsId.sessions}
+        kind={kind}
+        data={data}
+      />
     </div>
   );
 }

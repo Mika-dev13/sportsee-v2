@@ -1,0 +1,16 @@
+.user-average-lineChart {
+  position: relative;
+  background-color: #ff0000;
+  border-radius: 1rem;
+  width: 25.8rem;
+}
+
+.user-average-lineChart h2 {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  width: 10em;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
