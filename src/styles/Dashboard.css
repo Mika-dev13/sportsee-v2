@@ -1,9 +1,13 @@
+.dashboard-container {
+  margin: 0 auto;
+}
+
 .dashboard-header {
   margin-top: 6.8rem;
   margin-left: 5rem;
 }
 
-.dashboard-container {
+.dashboard-activity-container {
   display: flex;
   margin: 7rem 10rem;
 }

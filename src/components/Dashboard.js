@@ -19,12 +19,12 @@ export default function Dashboard({
   // const { userInfos } = USER_MAIN_DATA[0];
 
   return (
-    <div>
+    <div className="dashboard-container">
       <div className="dashboard-header">
         <DashboardHeader firstName={userInfos.firstName} />
       </div>
 
-      <div className="dashboard-container">
+      <div className="dashboard-activity-container">
         <div>
           <DailyUserActivity sessions={sessions} />
           <div className="user-graph">

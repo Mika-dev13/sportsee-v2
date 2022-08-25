@@ -9,7 +9,7 @@ export default function UserAverageSessions({ averageSessions }) {
         width={258}
         height={263}
         data={averageSessions}
-        margin={{ top: 30, right: 12, bottom: 24, left: 12 }}
+        margin={{ top: 80, right: 12, bottom: 24, left: 12 }}
       >
         <Line
           type="monotone"
@@ -24,11 +24,12 @@ export default function UserAverageSessions({ averageSessions }) {
           }}
         />
         <Tooltip
-          formatter={function (value, name) {
-            return `${value}`;
-          }}
+          // formatter={function (value, name) {
+          //   return `${value}`;
+          // }}
           cursor={false}
-          viewBox={{ x: 0, y: 0, width: 100, height: 100 }}
+          content={<CustomTooltip />}
+          // viewBox={{ x: 0, y: 0, width: 100, height: 100 }}
         />
         <XAxis
           dataKey="day"
@@ -44,4 +45,16 @@ export default function UserAverageSessions({ averageSessions }) {
       </LineChart>
     </div>
   );
+}
+
+function CustomTooltip({ active, payload }) {
+  if (active && payload) {
+    return (
+      <div className="tooltip-average-container">
+        <div className="tooltip-average-text">{`${payload[0].value} mn`}</div>
+      </div>
+    );
+  }
+
+  return null;
 }

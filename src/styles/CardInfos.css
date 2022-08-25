@@ -16,6 +16,8 @@
 .cardInfos-container p {
   font-size: 1.4rem;
   font-weight: 500;
+  color: #74798c;
+  line-height: 2.4rem;
 }
 
 .cardInfos-text {
