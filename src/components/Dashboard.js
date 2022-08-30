@@ -1,4 +1,4 @@
-// import { USER_MAIN_DATA } from '../datas/Datas';
+import PropTypes from 'prop-types';
 import DashboardHeader from './DashboardHeader';
 import DailyUserActivity from './DailyUserActivity';
 import UserAverageSessions from './UserAverageSessions';
@@ -60,3 +60,13 @@ export default function Dashboard({
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  userInfos: PropTypes.object,
+  sessions: PropTypes.array,
+  averageSessions: PropTypes.array,
+  kind: PropTypes.object,
+  data: PropTypes.array,
+  score: PropTypes.number,
+  keyData: PropTypes.object,
+};

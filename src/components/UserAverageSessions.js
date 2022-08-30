@@ -1,7 +1,15 @@
-import { LineChart, Line, XAxis, Tooltip } from 'recharts';
+import PropTypes from 'prop-types';
+import { LineChart, Line, XAxis, Tooltip, Rectangle } from 'recharts';
 import '../styles/UserAverageSessions.css';
 
 export default function UserAverageSessions({ averageSessions }) {
+  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+
+  averageSessions = averageSessions.map((session, index) => {
+    session.day = days[index];
+    return session;
+  });
+
   return (
     <div className="user-average-lineChart">
       <h2>Durée moyenne des sessions</h2>
@@ -23,14 +31,7 @@ export default function UserAverageSessions({ averageSessions }) {
             r: 3,
           }}
         />
-        <Tooltip
-          // formatter={function (value, name) {
-          //   return `${value}`;
-          // }}
-          cursor={false}
-          content={<CustomTooltip />}
-          // viewBox={{ x: 0, y: 0, width: 100, height: 100 }}
-        />
+        <Tooltip cursor={<CustomCursor />} content={<CustomTooltip />} />
         <XAxis
           dataKey="day"
           stroke="rgba(255, 255, 255, 0.6)"
@@ -47,7 +48,7 @@ export default function UserAverageSessions({ averageSessions }) {
   );
 }
 
-function CustomTooltip({ active, payload }) {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload) {
     return (
       <div className="tooltip-average-container">
@@ -57,4 +58,16 @@ function CustomTooltip({ active, payload }) {
   }
 
   return null;
-}
+};
+
+const CustomCursor = (props) => {
+  const { points, width } = props;
+  const { x } = points[0];
+  return (
+    <Rectangle fill="rgba(0, 0, 0, 0.1" x={x} width={width} height={268} />
+  );
+};
+
+UserAverageSessions.propTypes = {
+  averageSessions: PropTypes.array,
+};

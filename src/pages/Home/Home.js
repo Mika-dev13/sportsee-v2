@@ -9,8 +9,14 @@ import Aside from '../../components/Aside';
 import Dashboard from '../../components/Dashboard';
 import '../Home/Home.css';
 
+import { fetchAPI } from '../../utils/fetchAPI.js';
+
 export default function Home() {
   const { userId } = useParams();
+
+  const DataMockOrAPI = true;
+
+  // console.log(fetchAPI(userId));
 
   const userMainDataId = USER_MAIN_DATA.find(
     (item) => item.id === parseInt(userId)

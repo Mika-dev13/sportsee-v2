@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Radar,
   RadarChart,
@@ -7,7 +8,22 @@ import {
 } from 'recharts';
 import '../styles/UserPerformance.css';
 
-export default function UserPerformanceChart({ kind, data }) {
+export default function UserPerformanceChart({ data }) {
+  const kindInOrder = [
+    'Intensité',
+    'Vitesse',
+    'Force',
+    'Endurance',
+    'Energie',
+    'Cardio',
+  ];
+
+  data = data.map((item, index) => {
+    item.kind = kindInOrder[index];
+
+    return item;
+  });
+
   return (
     <div className="user-performance-container">
       <RadarChart outerRadius={90} width={258} height={263} data={data}>
@@ -17,6 +33,11 @@ export default function UserPerformanceChart({ kind, data }) {
           stroke="white"
           tickLine={false}
           axisLine={false}
+          dy={4}
+          tick={{
+            fontSize: 12,
+            fontWeight: 500,
+          }}
         />
         <PolarRadiusAxis
           angle={30}
@@ -29,3 +50,7 @@ export default function UserPerformanceChart({ kind, data }) {
     </div>
   );
 }
+
+UserPerformanceChart.propTypes = {
+  data: PropTypes.array,
+};

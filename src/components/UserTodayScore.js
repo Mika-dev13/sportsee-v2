@@ -1,22 +1,35 @@
-import { PieChart, Pie } from 'recharts';
+import PropTypes from 'prop-types';
+import { PieChart, Pie, Cell } from 'recharts';
 import '../styles/UserTodayScore.css';
 
 export default function UserTodayScore({ score }) {
-  console.log(score);
+  let ValueDefault = score > 0 ? 1 - score : 1;
+  let dataTab = [{ value: score }, { value: ValueDefault }];
+
+  const COLORS = ['#FF0000', 'transparent'];
 
   return (
     <div className="today-score-container">
       <h2>Score</h2>
       <PieChart width={258} height={264}>
         <Pie
-          data={score}
-          dataKey="todayScore"
+          data={dataTab}
+          dataKey="value"
           cx="50%"
           cy="50%"
           innerRadius={70}
           outerRadius={80}
-          label
-        ></Pie>
+          startAngle={90}
+          endAngle={450}
+        >
+          {dataTab.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={COLORS[index % COLORS.length]}
+              cornerRadius={50}
+            />
+          ))}
+        </Pie>
       </PieChart>
       <div className="today-score-text">
         <p className="bold">{100 * score}%</p>
@@ -26,3 +39,7 @@ export default function UserTodayScore({ score }) {
     </div>
   );
 }
+
+UserTodayScore.propTypes = {
+  score: PropTypes.number,
+};

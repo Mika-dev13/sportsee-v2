@@ -1,17 +1,18 @@
+import PropTypes from 'prop-types';
 import caloriesIcon from '../assets/caloriesIcon.svg';
 import carbsIcon from '../assets/carbsIcon.svg';
 import fatIcon from '../assets/fatIcon.svg';
 import proteinIcon from '../assets/proteinIcon.svg';
 import '../styles/CardInfos.css';
 
-const ICON_BY_TYPE = {
+const ICONS = {
   Calories: caloriesIcon,
   Glucides: carbsIcon,
   Protéines: proteinIcon,
   Lipides: fatIcon,
 };
 
-const UNIT_BY_TYPE = {
+const UNITS = {
   Calories: 'kCal',
   Glucides: 'g',
   Protéines: 'g',
@@ -21,13 +22,23 @@ const UNIT_BY_TYPE = {
 export default function Cardinfos({ type, value }) {
   return (
     <div className="cardInfos-container">
-      <img src={ICON_BY_TYPE[type]} alt={type} />
+      <img src={ICONS[type]} alt={type} />
       <div className="cardInfos-text">
         <span>
-          {value} {UNIT_BY_TYPE[type]}
+          {numberWithCommas(value)} {UNITS[type]}
         </span>
         <p>{type}</p>
       </div>
     </div>
   );
 }
+
+//decimal thousand separator
+function numberWithCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+Cardinfos.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.number,
+};

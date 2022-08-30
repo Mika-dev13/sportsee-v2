@@ -3,12 +3,12 @@
   background-color: #020203;
   color: white;
   padding: 0 2.5rem;
-  height: 122vh;
+  height: 135vh;
 }
 .aside-nav {
   display: flex;
   flex-direction: column;
-  margin-top: 20vh;
+  margin-top: 35vh;
 }
 
 .aside-link {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import '../styles/DashboardHeader.css';
 export default function DashboardHeader({ firstName }) {
   return (
@@ -10,3 +11,7 @@ export default function DashboardHeader({ firstName }) {
     </div>
   );
 }
+
+DashboardHeader.propTypes = {
+  firstName: PropTypes.string,
+};
