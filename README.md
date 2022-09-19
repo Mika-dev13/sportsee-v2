@@ -5,9 +5,9 @@
 
 
 
-#Project 12 : SportSee
+# Project 12 : SportSee
 
-SportSee is a startup dedicated to sports coaching
+SportSee is a startup dedicated to sports coaching.
 
 ## Technologies
 
@@ -17,11 +17,17 @@ SportSee is a startup dedicated to sports coaching
 - Rechart
 - Axios
 
+## Prerequisite
+
+- NodeJS
+- Yarn 
+- Npm
+
 ## Installation
 
 1. Clone this repository
-2. Install dependencies: yarn install
-3. Launch the App: yarn start
+2. Install dependencies: ==yarn install==
+3. Launch the App: ==yarn start==
 4. Install and launch the delivered API to access to the database and test the app.
 
 
