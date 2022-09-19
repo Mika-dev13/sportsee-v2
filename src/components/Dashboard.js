@@ -16,8 +16,6 @@ export default function Dashboard({
   score,
   keyData,
 }) {
-  // const { userInfos } = USER_MAIN_DATA[0];
-
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">

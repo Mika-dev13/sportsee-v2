@@ -33,7 +33,10 @@ export default function Cardinfos({ type, value }) {
   );
 }
 
-//decimal thousand separator
+/** Insert decimal thousand separator
+ * @param { Number } day score
+ * @return { String }
+ * */
 function numberWithCommas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

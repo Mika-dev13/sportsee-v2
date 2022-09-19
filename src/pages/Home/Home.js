@@ -1,54 +1,50 @@
 import { useParams } from 'react-router-dom';
-import {
-  USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-} from '../../datas/Datas.js';
+import { FetchApi } from '../../utils/fetchAPI.js';
+import { DataMocke } from '../../utils/dataMocke.js';
+
 import Aside from '../../components/Aside';
 import Dashboard from '../../components/Dashboard';
 import '../Home/Home.css';
 
-import { fetchAPI } from '../../utils/fetchAPI.js';
-
 export default function Home() {
   const { userId } = useParams();
 
-  const DataMockOrAPI = true;
+  const DataMockOrAPI = false;
 
-  // console.log(fetchAPI(userId));
+  const { loading, usersData } = DataMockOrAPI
+    ? DataMocke(userId)
+    : FetchApi(userId);
 
-  const userMainDataId = USER_MAIN_DATA.find(
-    (item) => item.id === parseInt(userId)
-  );
-  const { userInfos, score, keyData } = userMainDataId;
+  const { userMainData, userActivity, userAverageSessions, userPerformance } =
+    usersData;
 
-  const userActivityId = USER_ACTIVITY.find(
-    (item) => item.userId === parseInt(userId)
-  );
-  const { sessions } = userActivityId;
-
-  const userAverageSessionsId = USER_AVERAGE_SESSIONS.find(
-    (item) => item.userId === parseInt(userId)
-  );
-
-  const userPerformanceId = USER_PERFORMANCE.find(
-    (item) => item.userId === parseInt(userId)
-  );
-  const { kind, data } = userPerformanceId;
-
-  return (
-    <div className="home-container">
-      <Aside />
-      <Dashboard
-        userInfos={userInfos}
-        score={score}
-        sessions={sessions}
-        averageSessions={userAverageSessionsId.sessions}
-        kind={kind}
-        data={data}
-        keyData={keyData}
-      />
-    </div>
-  );
+  if (!loading) {
+    return (
+      <div className="home-container">
+        <Aside />
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <h1 className="loading">Loading...</h1>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="home-container">
+        <Aside />
+        <Dashboard
+          userInfos={userMainData.userInfos}
+          score={userMainData.score}
+          sessions={userActivity.sessions}
+          averageSessions={userAverageSessions.sessions}
+          kind={userPerformance.kind}
+          data={userPerformance.data}
+          keyData={userMainData.keyData}
+        />
+      </div>
+    );
+  }
 }

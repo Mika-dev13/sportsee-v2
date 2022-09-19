@@ -1,15 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import apiBackend from '../api/apiBackend';
 
-export function fetchAPI(userId) {
-  //   const [data, setData] = useState({});
+/**
+ * Get data from api
+ * @param { Number } user id
+ * @returns { Promise }
+ */
 
-  console.log(userId);
+export const FetchApi = (userId) => {
+  const [usersData, setUsersData] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  fetch(`http://localhost:3000/user/${userId}`)
-    .then((data) => {
-      return data.json();
-    })
-    .then((reponse) => {
-      console.log(reponse);
-    });
-}
+  const services = [
+    `${userId}`,
+    `${userId}/activity`,
+    `${userId}/average-sessions`,
+    `${userId}/performance`,
+  ];
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchData = async () => {
+      try {
+        const responses = await Promise.all(
+          services.map((service) => {
+            return apiBackend.get(`/${service}`);
+          })
+        );
+        const dataResponses = responses.map((response) => {
+          return response.data.data;
+        });
+
+        const usersData = {
+          userMainData: dataResponses[0],
+          userActivity: dataResponses[1],
+          userAverageSessions: dataResponses[2],
+          userPerformance: dataResponses[3],
+        };
+
+        if (isMounted) {
+          setUsersData(usersData);
+          setLoading(true);
+        }
+      } catch (err) {}
+    };
+    fetchData();
+    return () => (isMounted = false);
+  }, []);
+
+  return { usersData, loading };
+};
