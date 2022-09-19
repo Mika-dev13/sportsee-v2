@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import apiBackend from '../api/apiBackend';
 
 /**
- * Get data from api
- * @param { Number } user id
- * @returns { Promise }
+ * Get users data from api
+ * @param { number } userid
+ * @returns { promise.<object } return users data
  */
 
 export const FetchApi = (userId) => {
