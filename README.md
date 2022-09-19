@@ -22,13 +22,14 @@ SportSee is a startup dedicated to sports coaching.
 - NodeJS
 - Yarn 
 - Npm
+- Docker
 
 ## Installation
 
 1. Clone this repository
-2. Install dependencies: ==yarn install==
-3. Launch the App: ==yarn start==
-4. Install and launch the delivered API to access to the database and test the app.
+2. Install dependencies: ```yarn install```
+3. Launch the App: ```yarn start```
+4. Install and launch the [delivered API](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) to access to the database and test the app.
 
 
 <!-- # Getting Started with Create React App
