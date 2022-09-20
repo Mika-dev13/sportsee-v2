@@ -8,8 +8,9 @@ import { useState } from 'react';
 
 /**
  * Get mocked data by their id
- * @param { Number } user id
- * @returns { Object / Boolean }
+ * @function
+ * @param { Number } userId user Id
+ * @returns { Object }
  */
 
 export const DataMocke = (userId) => {

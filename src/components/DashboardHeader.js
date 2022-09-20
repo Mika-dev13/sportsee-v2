@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import '../styles/DashboardHeader.css';
-export default function DashboardHeader({ firstName }) {
+
+/**
+ * Display user name and message in dashboard header
+ * @param { String } firstName user Name
+ * @returns { reactElement }
+ */
+function DashboardHeader({ firstName }) {
   return (
     <div className="dashboard-header">
       <h1>
@@ -11,6 +17,8 @@ export default function DashboardHeader({ firstName }) {
     </div>
   );
 }
+
+export default DashboardHeader;
 
 DashboardHeader.propTypes = {
   firstName: PropTypes.string,

@@ -7,7 +7,12 @@ import '../styles/Dashboard.css';
 import UserTodayScore from './UserTodayScore';
 import Cardinfos from './CardInfos';
 
-export default function Dashboard({
+/**
+ * Display user Dashboard
+ * @component
+ * @returns { reactElement }
+ */
+function Dashboard({
   userInfos,
   sessions,
   averageSessions,
@@ -58,6 +63,8 @@ export default function Dashboard({
     </div>
   );
 }
+
+export default Dashboard;
 
 Dashboard.propTypes = {
   userInfos: PropTypes.object,

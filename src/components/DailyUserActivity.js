@@ -2,9 +2,14 @@ import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import '../styles/DailyUserActivity.css';
 
-export default function DailyUserActivity({ sessions }) {
-  //traitement des données
+/**
+ * Display user daily activity in BarChart
+ * @component
+ * @param { Array } sessions user activity data
+ * @returns { reactComponent }
+ */
 
+function DailyUserActivity({ sessions }) {
   return (
     <div className="daily-activity-container">
       <div className="daily-activity-header">
@@ -79,6 +84,13 @@ export default function DailyUserActivity({ sessions }) {
   );
 }
 
+export default DailyUserActivity;
+
+/**
+ * Custom tooltip barChart
+ * @param {object} payload data
+ * @param { boolean } active
+ */
 function CustomTooltip({ active, payload }) {
   if (active && payload) {
     return (
@@ -92,6 +104,10 @@ function CustomTooltip({ active, payload }) {
   return null;
 }
 
+/**
+ * Custom barChart x axis
+ * @param  {object } props
+ */
 function CustomizeXaxis(props) {
   const { x, y, payload } = props;
 

@@ -6,6 +6,11 @@ import Aside from '../../components/Aside';
 import Dashboard from '../../components/Dashboard';
 import '../Home/Home.css';
 
+/**
+ *@component
+ * @returns { ReactElement }
+ */
+
 export default function Home() {
   const { userId } = useParams();
 

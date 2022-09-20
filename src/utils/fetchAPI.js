@@ -3,8 +3,9 @@ import apiBackend from '../api/apiBackend';
 
 /**
  * Get users data from api
- * @param { number } userid
- * @returns { promise.<object } return users data
+ * @function
+ * @param { number } userid user Id
+ * @returns { promise } return users data
  */
 
 export const FetchApi = (userId) => {

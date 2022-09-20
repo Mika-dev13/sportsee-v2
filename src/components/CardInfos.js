@@ -4,6 +4,7 @@ import carbsIcon from '../assets/carbsIcon.svg';
 import fatIcon from '../assets/fatIcon.svg';
 import proteinIcon from '../assets/proteinIcon.svg';
 import '../styles/CardInfos.css';
+import numberWithCommas from '../utils/numberWithCommas';
 
 const ICONS = {
   Calories: caloriesIcon,
@@ -19,7 +20,14 @@ const UNITS = {
   Lipides: 'g',
 };
 
-export default function Cardinfos({ type, value }) {
+/**
+ * Display card Infos element (calories, protéines, glucides, lipides)
+ * @component
+ * @param { string } units and url's icon
+ * @param { number } day score
+ * @returns { reactElement }
+ */
+function Cardinfos({ type, value }) {
   return (
     <div className="cardInfos-container">
       <img src={ICONS[type]} alt={type} />
@@ -33,15 +41,9 @@ export default function Cardinfos({ type, value }) {
   );
 }
 
-/** Insert decimal thousand separator
- * @param { Number } day score
- * @return { String }
- * */
-function numberWithCommas(num) {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
 Cardinfos.propTypes = {
   type: PropTypes.string,
   value: PropTypes.number,
 };
+
+export default Cardinfos;

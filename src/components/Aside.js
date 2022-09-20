@@ -5,7 +5,13 @@ import swimming from '../assets/swimming.svg';
 import bike from '../assets/bike.svg';
 import dumbble from '../assets/dumbble.svg';
 
-export default function Aside() {
+/**
+ * Display left sidebar
+ * @component
+ * @returns {reactComponent}
+ */
+
+function Aside() {
   return (
     <div className="aside-container">
       <nav className="aside-nav">
@@ -26,3 +32,5 @@ export default function Aside() {
     </div>
   );
 }
+
+export default Aside;
