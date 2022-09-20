@@ -1,13 +1,13 @@
-
-[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
-
-
-
 # Project 12 : SportSee
 
 SportSee is a startup dedicated to sports coaching.
+
+## Build with
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Chart.js](https://img.shields.io/badge/rechart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 
 ## Technologies
 
