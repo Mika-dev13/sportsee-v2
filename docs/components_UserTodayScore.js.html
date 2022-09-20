@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Openclassrooms project</title>
+    <title>JSDoc: Source: components/UserTodayScore.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,65 +17,71 @@
 
 <div id="main">
 
-    <h1 class="page-title">Openclassrooms project</h1>
+    <h1 class="page-title">Source: components/UserTodayScore.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>Project 12 : SportSee</h1>
-<p>SportSee is a startup dedicated to sports coaching.</p>
-<h2>Build with</h2>
-<p><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&amp;logo=react&amp;logoColor=%2361DAFB" alt="React">
-<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3">
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="JavaScript">
-<img src="https://img.shields.io/badge/rechart.js-F5788D.svg?style=for-the-badge&amp;logo=chart.js&amp;logoColor=white" alt="Chart.js">
-<img src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&amp;logo=yarn&amp;logoColor=white" alt="Yarn"></p>
-<h2>Technologies</h2>
-<ul>
-<li>JS</li>
-<li>CSS</li>
-<li>React</li>
-<li>Rechart</li>
-<li>Axios</li>
-</ul>
-<h2>Prerequisite</h2>
-<ul>
-<li>NodeJS</li>
-<li>Yarn</li>
-<li>Npm</li>
-<li>Docker</li>
-</ul>
-<h2>Installation</h2>
-<ol>
-<li>Clone this repository</li>
-<li>Install dependencies: <code>yarn install</code></li>
-<li>Launch the App: <code>yarn start</code></li>
-<li>Install and launch the <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard">delivered API</a> to access to the database and test the app.</li>
-</ol></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
+import { PieChart, Pie, Cell } from 'recharts';
+import '../styles/UserTodayScore.css';
+
+/**
+ * Display user daily score in pie chart
+ * @component
+ * @param {number} score
+ * @returns {reactElement}
+ */
+function UserTodayScore({ score }) {
+  let ValueDefault = score > 0 ? 1 - score : 1;
+  let dataTab = [{ value: score }, { value: ValueDefault }];
+
+  const COLORS = ['#FF0000', 'transparent'];
+
+  return (
+    &lt;div className="today-score-container">
+      &lt;h2>Score&lt;/h2>
+      &lt;PieChart width={258} height={264}>
+        &lt;Pie
+          data={dataTab}
+          dataKey="value"
+          cx="50%"
+          cy="50%"
+          innerRadius={70}
+          outerRadius={80}
+          startAngle={90}
+          endAngle={450}
+        >
+          {dataTab.map((entry, index) => (
+            &lt;Cell
+              key={`cell-${index}`}
+              fill={COLORS[index % COLORS.length]}
+              cornerRadius={50}
+            />
+          ))}
+        &lt;/Pie>
+      &lt;/PieChart>
+      &lt;div className="today-score-text">
+        &lt;p className="bold">{100 * score}%&lt;/p>
+        &lt;p>de votre&lt;/p>
+        &lt;p>objectif&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default UserTodayScore;
+
+UserTodayScore.propTypes = {
+  score: PropTypes.number,
+};
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

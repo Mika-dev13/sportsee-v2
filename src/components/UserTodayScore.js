@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import { PieChart, Pie, Cell } from 'recharts';
 import '../styles/UserTodayScore.css';
 
-export default function UserTodayScore({ score }) {
+/**
+ * Display user daily score in pie chart
+ * @component
+ * @param {number} score
+ * @returns {reactElement}
+ */
+function UserTodayScore({ score }) {
   let ValueDefault = score > 0 ? 1 - score : 1;
   let dataTab = [{ value: score }, { value: ValueDefault }];
 
@@ -39,6 +45,8 @@ export default function UserTodayScore({ score }) {
     </div>
   );
 }
+
+export default UserTodayScore;
 
 UserTodayScore.propTypes = {
   score: PropTypes.number,

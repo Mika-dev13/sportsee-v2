@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Openclassrooms project</title>
+    <title>JSDoc: Source: components/UserPerformanceChart.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,65 +17,82 @@
 
 <div id="main">
 
-    <h1 class="page-title">Openclassrooms project</h1>
+    <h1 class="page-title">Source: components/UserPerformanceChart.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>Project 12 : SportSee</h1>
-<p>SportSee is a startup dedicated to sports coaching.</p>
-<h2>Build with</h2>
-<p><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&amp;logo=react&amp;logoColor=%2361DAFB" alt="React">
-<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3">
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="JavaScript">
-<img src="https://img.shields.io/badge/rechart.js-F5788D.svg?style=for-the-badge&amp;logo=chart.js&amp;logoColor=white" alt="Chart.js">
-<img src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&amp;logo=yarn&amp;logoColor=white" alt="Yarn"></p>
-<h2>Technologies</h2>
-<ul>
-<li>JS</li>
-<li>CSS</li>
-<li>React</li>
-<li>Rechart</li>
-<li>Axios</li>
-</ul>
-<h2>Prerequisite</h2>
-<ul>
-<li>NodeJS</li>
-<li>Yarn</li>
-<li>Npm</li>
-<li>Docker</li>
-</ul>
-<h2>Installation</h2>
-<ol>
-<li>Clone this repository</li>
-<li>Install dependencies: <code>yarn install</code></li>
-<li>Launch the App: <code>yarn start</code></li>
-<li>Install and launch the <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard">delivered API</a> to access to the database and test the app.</li>
-</ol></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+} from 'recharts';
+import '../styles/UserPerformance.css';
+
+/**
+ * Display user performance in radar chart
+ * @component
+ * @param { array } data
+ * @returns {reactElement}
+ */
+function UserPerformanceChart({ data }) {
+  const kindInOrder = [
+    'Intensité',
+    'Vitesse',
+    'Force',
+    'Endurance',
+    'Energie',
+    'Cardio',
+  ];
+
+  data = data.map((item, index) => {
+    item.kind = kindInOrder[index];
+
+    return item;
+  });
+
+  return (
+    &lt;div className="user-performance-container">
+      &lt;RadarChart outerRadius={90} width={258} height={263} data={data}>
+        &lt;PolarGrid radialLines={false} />
+        &lt;PolarAngleAxis
+          dataKey="kind"
+          stroke="white"
+          tickLine={false}
+          axisLine={false}
+          dy={4}
+          tick={{
+            fontSize: 12,
+            fontWeight: 500,
+          }}
+        />
+        &lt;PolarRadiusAxis
+          angle={30}
+          domain={[0, 50]}
+          axisLine={false}
+          tick={false}
+        />
+        &lt;Radar stroke="none" fill="#FF0101" fillOpacity={0.6} dataKey="value" />
+      &lt;/RadarChart>
+    &lt;/div>
+  );
+}
+
+export default UserPerformanceChart;
+
+UserPerformanceChart.propTypes = {
+  data: PropTypes.array,
+};
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

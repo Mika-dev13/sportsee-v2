@@ -8,7 +8,13 @@ import {
 } from 'recharts';
 import '../styles/UserPerformance.css';
 
-export default function UserPerformanceChart({ data }) {
+/**
+ * Display user performance in radar chart
+ * @component
+ * @param { array } data
+ * @returns {reactElement}
+ */
+function UserPerformanceChart({ data }) {
   const kindInOrder = [
     'Intensité',
     'Vitesse',
@@ -50,6 +56,8 @@ export default function UserPerformanceChart({ data }) {
     </div>
   );
 }
+
+export default UserPerformanceChart;
 
 UserPerformanceChart.propTypes = {
   data: PropTypes.array,

@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, Tooltip, Rectangle } from 'recharts';
 import '../styles/UserAverageSessions.css';
 
-export default function UserAverageSessions({ averageSessions }) {
+/**
+ * Display user Average sessions in line Chart
+ * @component
+ * @param  { array } averageSessions user average sessions data
+ * @returns {reactElement}
+ */
+function UserAverageSessions({ averageSessions }) {
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
   averageSessions = averageSessions.map((session, index) => {
@@ -48,6 +54,13 @@ export default function UserAverageSessions({ averageSessions }) {
   );
 }
 
+export default UserAverageSessions;
+
+/**
+ * Custom tooltip line chart
+ * @param {boolean} active
+ * @param { Object } payload
+ */
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload) {
     return (
@@ -60,6 +73,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+/**
+ * Custom line chart cusor
+ * @param { Object } props
+ * @returns {rechartElement}
+ */
 const CustomCursor = (props) => {
   const { points, width } = props;
   const { x } = points[0];

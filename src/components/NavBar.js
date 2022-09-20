@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import '../styles/Navigation.css';
 
-export default function NavBar() {
+/**
+ * @component
+ * @returns { reactComponent }
+ */
+function NavBar() {
   return (
     <nav className="nav">
       <img className="logo" src={logo} alt="logo du site" />
@@ -23,3 +27,5 @@ export default function NavBar() {
     </nav>
   );
 }
+
+export default NavBar;

@@ -3,6 +3,7 @@ import '../styles/DashboardHeader.css';
 
 /**
  * Display user name and message in dashboard header
+ * @component
  * @param { String } firstName user Name
  * @returns { reactElement }
  */
